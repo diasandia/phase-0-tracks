@@ -45,16 +45,6 @@ A given class can be used multiple times in a document.
   margin-bottom: 0;
 }
 
-.job {
-  color: #e9e5dc;
-  border-radius: 25;
-  margin-top: 20;
-  margin-bottom: 20;
-}
-
-.list{
-  font-size: .8em;
-}
 
 /* You can use a tag AND a class
 to make the rule more specific. */
@@ -72,7 +62,3 @@ h1#resume-title {
 /* You can select the child tag of
 an element of a certain class (the p
 is nested inside the contact-info section) */
-
-#contact-info p {
-  line-height: .8;
-}
