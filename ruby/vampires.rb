@@ -47,7 +47,6 @@ else
 end
 
 #ask if they would like to enroll in the company's health insurance
-
 puts "Would you like to enroll in the company's health insurance? (yes/no)"
 insurance=gets.chomp.downcase
 while insurance != "yes" && insurance != "no"
@@ -60,12 +59,21 @@ else
   insurance= false
 end
 
+#ask if they have any allergies
+puts "Please list any allergies. Enter one allergy at a time. When finish type done."
+allergies=gets.chomp
+while allergies!= "sunshine" && allergies!="done"
+  puts "Any other allergies? Please enter one allergy at a time. When finish type done."
+  allergies=gets.chomp
+end
+
+
 case
-  when name== "Drake Cula" && "Tu Fang”"
+  when name== "Drake Cula" || name== "Tu Fang"
     vamp_stat= "definitely a vampire"
-  when right_age==true && garlic==true && insurance==true
-     vamp_stat= "probably not a vampire"
-  when right_age==false && (garlic==false || insurance)
+  when right_age==true && garlic==true && insurance==true && allergies!= "sunshine"
+    vamp_stat= "probably not a vampire"
+  when allergies== "sunshine" || [right_age==false && (garlic==false || insurance)]
      vamp_stat=  "probably a vampire"
   when right_age==false && garlic==false && insurance==false
     vamp_stat=  "almost certainly a vampire"
