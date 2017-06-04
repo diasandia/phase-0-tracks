@@ -1,0 +1,23 @@
+4.2 Algorithms - Pseudocoding
+
+New Robot - Elevator Algorithm::
+
+1. Enter elevator
+2. Find the elevator button panel, which has an elevator position indicator display screen and buttons. Typically on the left-hand side of when you enter
+3. Determine your current floor level (building has only level 1 or 2) through the elevator position indicator display screen
+4. “What floor level are you on? Floor 1 or 2?”
+If display has floor 1: press the button with the number “2”
+If display has floor 2: press the button with the number “1” **note, for safety reasons stay away from the doors, they will close
+5. Wait for doors to close and elevator to move to selected level
+6. Check display screen:: does it note the level you intended to go to?
+If yes, congrats! Exit elevator and get to cleaning!
+If no, still on the same floor? Repeat steps 3 to 6.
+
+Making Oatmeal::
+1. Find a microwave-safe cereal bowl, ¼ measuring cup, and a spoon from cabinet
+2. Scoop ¼  a cup of uncooked-whole-grain-oatmeal into your cereal bowl
+3. Pour ½  a cup of milk to bowl of oatmeal
+4. Add ¼ a cup of blueberries and ½ a banana to bowl of oatmeal with milk
+5. Place bowl in microwave and cook for 4 mins
+6. Remove from microwave and stir with spoon
+7. Let it cool for 5 mins and enjoy!
