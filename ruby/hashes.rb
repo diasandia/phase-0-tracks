@@ -3,7 +3,7 @@
 #PROGRAM REQUIREMENTS
 # Allow interior designer to enter client details (name, age, number of children, pets, decor theme)
 
-#Set up hash
+#  Set up hash
  client_info = {
     "name" => "",
     "age" => "",
@@ -50,8 +50,19 @@
 #Print hash out back to designer
 p client_info
 
-puts " Is there anything you would like to update?"
+# Give the user opportunity to update key
+puts "Are there any changes you would like to make to the client's details? (name of category/none)"
+  client_change = gets.chomp.downcase
+  if client_change == "none"
+    puts "Great!"
+  else
+    puts "What would you like to change #{client_change} to?"
+    change_to_make = gets.chomp
+    client_info[client_change] = change_to_make
+  end
 
+#Print latest version of the hash
+p client_info
 
 
 ### Pseudocode
