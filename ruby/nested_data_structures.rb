@@ -46,5 +46,22 @@ gym = {
     }
 }
 
+#Add "Cycling Shoes" to the equipment list in spin_room
+p gym[:spin_room][:equipment].push("Cycling Shoes")
+p gym[:spin_room][:equipment]
+
+# Print squat rack
+p gym[:weight_room][:equipment][2]
+
+#Print yoga mats in alternating case and
+p gym[:yoga_room][:equipment][0].swapcase
+
+#Add "Dumbbells" underneath barbell the equipment list in weight_room
+p gym[:weight_room][:equipment].insert(1, "Dumbbells")
+
+#Change total seats for yoga room from 60 to 70 && print results to confirm change
+p gym[:yoga_room][:class_info][:total_seats] = 70
+p gym[:yoga_room]
+
 
 
