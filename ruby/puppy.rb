@@ -1,8 +1,8 @@
 #6.1 Introduction to Classes
 
-# Release 0 - Deign a class
+# Release 0 - Design a class
 
-  # PUPPY ------------------- #[Class]
+  # PUPPY -------------------
   # Australian shepherd
 
   # CHARACTERISTICS ---------------
