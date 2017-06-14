@@ -2,10 +2,10 @@
 
 # Release 0 - Deign a class
 
-  # Puppy ------------------- #[Class]
+  # PUPPY ------------------- #[Class]
   # Australian shepherd
 
-  # Characteristics ---------------
+  # CHARACTERISTICS ---------------
   # Temperament: varies
   # Personality: varies
   # Colors: varies
@@ -13,7 +13,7 @@
   # Height: varies
   # Wight: varies
 
-  # Behavior ---------------
+  # BEHAVIOR ---------------
   # Clingy
   # Work oriented
   # Vocal
