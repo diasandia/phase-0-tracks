@@ -1,10 +1,10 @@
 #6.3 Attributes
 
 class Santa
-  def initialize (gender, ethnicity)
+  def initialize (gender, eye_color, hair_color)
     puts "Initializing Santa instance ..."
     @gender = gender
-    @ethnicity = ethnicity
+    @eye_color = eye_color
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
     @age = 0
   end
@@ -19,20 +19,21 @@ class Santa
 
 end
 
-santas= Santa.new("women", "black")
+santas = []
+biological_gender = ["female", "male", "decline to state", "why do you care"]
+eye_color = ["blue", "green", "brown", "black"]
+hair_color = ["brown", "black", "white", "pink", "blue"]
+
+biological_gender.length.times do |i|
+  santas << Santa.new(biological_gender[i], eye_color[i], hair_color[i])
+end
+
 
 # santas = []
-# santas << Santa.new("agender", "black")
-# santas << Santa.new("female", "Latino")
-# santas << Santa.new("bigender", "white")
-# santas << Santa.new("male", "Japanese")
-# santas << Santa.new("female", "prefer not to say")
-# santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
-# santas << Santa.new("N/A", "N/A")
-
-
-# santas.each do |santa|
-#   puts "#{santa} what am I printing?"
+# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# example_genders.length.times do |i|
+#   santas << Santa.new(example_genders[i], example_ethnicities[i])
 # end
 
-# p santas
+p santas
