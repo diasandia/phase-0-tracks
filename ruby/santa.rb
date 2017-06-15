@@ -54,33 +54,37 @@ end
 
 #DRIVER CODE::
 
-santas = Santa.new("women","black")
-puts "#Santa is a #{santas.ethnicity} #{santas.gender}."
-santas.get_mad_at("Vixen")
-santas.celebrate_birthday
-santas.gender = "Biologically female but identifies as male"
-puts "Santa's gender is: #{santas.gender}"
+# santas = Santa.new("women","black")
+# puts "#Santa is a #{santas.ethnicity} #{santas.gender}."
+# santas.get_mad_at("Vixen")
+# santas.celebrate_birthday
+# santas.gender = "Biologically female but identifies as male"
+# puts "Santa's gender is: #{santas.gender}"
 
 #Build many, many Santas
 
 #Pseudocode
 #create lots of santas
 #input (integer)
-#output (santas_w_info)
+#output (array)
+@gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+@ethnicity = ["Black", "Latino", "Native American", "White", "Japanese-African", "prefer not to say"]
 
 def santa_generator(create_number_santas)
-
-
+gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicity = ["Black", "Latino", "Native American", "White", "Japanese-African", "prefer not to say"]
+santas =[]
+create_number_santas.times do[1]
+  santas << Santa.new(gender[1], ethnicity[1])
+end
 end
 
-santas =[]
-10.times do |i|
-  santas << Santa.new(gender[i], ethnicity[i])
+santas = Santa.new("gender", "ethnicity")
+p santa_generator(10)
 
 
-# santas = []
-# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-# example_ethnicities = ["Black", "Latino", "Native American", "White", "Japanese-African", "prefer not to say"]
+gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicity = ["Black", "Latino", "Native American", "White", "Japanese-African", "prefer not to say"]
 
 # biological_gender.length.times do |i|
 #   santas << Santa.new(gender[i], ethnicity[i])
