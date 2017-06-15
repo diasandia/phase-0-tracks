@@ -61,13 +61,29 @@ santas.celebrate_birthday
 santas.gender = "Biologically female but identifies as male"
 puts "Santa's gender is: #{santas.gender}"
 
+#Build many, many Santas
+
+#Pseudocode
+#create lots of santas
+#input (integer)
+#output (santas_w_info)
+
+def santa_generator(create_number_santas)
+
+
+end
+
+santas =[]
+10.times do |i|
+  santas << Santa.new(gender[i], ethnicity[i])
+
 
 # santas = []
 # example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 # example_ethnicities = ["Black", "Latino", "Native American", "White", "Japanese-African", "prefer not to say"]
 
 # biological_gender.length.times do |i|
-#   santas << Santa.new(biological_gender[i], eye_color[i], hair_color[i])
+#   santas << Santa.new(gender[i], ethnicity[i])
 # end
 
 
