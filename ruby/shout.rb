@@ -37,6 +37,7 @@ class TeaKettle
   include Shout
 end
 
+#---------------------
 # DRIVER CODE::
 
 # Instantiates instances of the classes and call the two module methods on each instance
@@ -47,7 +48,7 @@ teakettle = TeaKettle.new
 p train.yell_angrily("Choo choo")
 p train.yell_happily("Chugga chugga")
 p teakettle.yell_angrily("whistle")
-p teakettle.yell_happily("I'm a quite teakettle")
+p teakettle.yell_happily("I'm a quiet teakettle")
 
 
 
