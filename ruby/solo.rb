@@ -31,7 +31,7 @@
     #based on word length create guess counter
   # output: integer
 
-# Repeated guesses do not count against the user - Method for checking duplicate characters
+# Repeated guesses do not count against the user - Method for checking duplicate characters & feedback on each guess
   # input: user character, guessed characters array
   # steps:
     #IF character in guessed character array
@@ -39,7 +39,9 @@
     #Else
       # guess counter -1
   # output: array
+  #***stack word length against guessed characters array for counter?***
 
+#USER INTERFACE
 # Player receives continual feedback on the current state of the word
 
 # The user should get a congratulatory message if they win, and a taunting message if they lose.
