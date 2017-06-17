@@ -1,10 +1,10 @@
-# 6.7 Solo Challenge: A Game Class
+# 6.7: A Game Class
 
-# Create a class a word-guessing game
+#Create a class a word-guessing game
   # input: ClassName
   # steps:
-    #define the class
-    #add an empty initialize method
+  #   define the class
+  #   add an empty initialize method
   # output: Class
 
 # One user can enter a word - Method to create a list of characters
@@ -12,7 +12,56 @@
   # steps:
     #break the word into characters
     #create an array for characters
+    #disguise characters
   # output: array
+
+#  Method to mask the word
+  # input: character list
+  # steps:
+    # disguise each character
+  # output: masked array
+
+#####character_count = character_list.count
+
+class WordGame
+attr_reader :word
+attr_accessor :character_list,
+
+  def initilize(word)
+    @word = word
+    @character_list = character_list
+    # @guess_count = 0
+    # @guess_character = guess_character
+    # @masked_word = masked_word
+  end
+
+  def masked_word(word)
+    @character_list = word.split(//)
+    masked_character_list = character_list.map do |character| character.gsub(/./, "-")
+    end
+    return masked_character_list.join("")
+  end
+
+  def character_revel(guess_character)
+    guess_character_list =[]
+    guess_character_list << guess_character
+    @character_list.include? guess_character
+  end
+
+  #user provides a character
+  #create an empty array to store the guessed character
+  #character must go through each character of character list
+  #IF the character is there reveal it
+
+  end
+
+wordgame = WordGame.new
+# p wordgame.initilize("hello")
+p wordgame.masked_word("pizza")
+p wordgame.character_revel("a")
+
+
+
 
 # Another user attempts to guess the word - Method for finding and replacing characters
   # input: guess character
