@@ -1,5 +1,80 @@
 # 6.7: A Game Class
 
+class Game
+
+  attr_accessor :word, :character_list, :guess_count
+
+  def initialize(word)
+    @word = word
+    @guessed_character = []
+    @character_list = []
+    @masked_character_list = []
+    @guess_count = 0
+    @game_over = false
+  end
+
+  def masked_word
+    @character_list = @word.split(//)
+    @masked_character_list = @character_list.map do |char| char = "-"
+  end
+    @masked_character_list.join
+  end
+
+  def guessed_chracters(guessed_character)
+    @guess_character_list << @guessed_character
+  end
+
+  def character_reveal(guessed_character)
+    if @character_list.include?(guessed_character)
+      @character_list.each_index do |i|
+        if @character_list[i] == guessed_character
+         @masked_character_list.delete_at(i)
+         @masked_character_list.insert(i, guessed_character)
+        end
+      end
+    end
+    @masked_character_list.join
+  end
+
+  def guess_count
+    @guess_count = @word.length
+  end
+
+  def game_state
+  if @masked_character_list == @word
+    @game_over = true
+    p "You win! The word is #{@word}!"
+  if @guess_counter == @guess_count
+    @game_over = true
+    p "Sorry, you lose! The word was #{@word}."
+  end
+  end
+end
+
+end
+
+
+#------------------------------------------
+#Driver code
+
+puts "Welcome to Guess the word! Player 1 - Please enter a word "
+player_word=gets.chomp
+game = Game.new(player_word)
+
+while game.guess_count < player_word.length
+puts "Player 2 - Please enter a letter."
+guessed_character = gets.chomp.downcase
+  if game.game_state true
+    break
+  end
+end
+
+end
+
+
+#-------------------------------
+# Pseudocode::
+
 # create a class a word-guessing game
 
 # create a method that takes a word and creates an array
@@ -42,63 +117,6 @@
 #     based on word length create guess counter
 #   output: integer
 
-class Game
-
-  attr_accessor :word, :character_list, :guess_count
-
-  def initialize(word)
-    @word = word
-    @guessed_character = []
-    @character_list = []
-    @masked_character_list = []
-    @guess_count = 0
-    @game_over = false
-  end
-
-  def masked_word
-    @character_list = @word.split(//)
-    @masked_character_list = @character_list.map do |char| char = "-"
-  end
-    @masked_character_list.join
-  end
-
-  # def guessed_chracters(guessed_character)
-  #   @guess_character_list << @guessed_character
-  # end
-
-  def character_reveal(guessed_character)
-    if @character_list.include?(guessed_character)
-      @character_list.each_index do |i|
-        if @character_list[i] == guessed_character
-         @masked_character_list.delete_at(i)
-         @masked_character_list.insert(i, guessed_character)
-        end
-      end
-    end
-    @masked_character_list.join
-  end
-
-  # def guess_count
-  #   @guess_count = @word.length
-  #   @guess_count -= 1
-  # end
-
- # def game_state
- #  when @masked_character_list == @word
- #    @game_over = true
- #    p "You win! The word is #{@word}!"
- #  when @guess_counter == @guess_count
- #    @game_over = true
- #    p "Sorry, you lose! The word was #{@word}."
-
-end
-
-game = Game.new("hello")
-p game.masked_word
-p game.character_reveal("l")
-# p game.character_reveal("o")
-
-
 # Repeated guesses do not count against the user - Method for checking duplicate characters & feedback on each guess
 #   input: user character, guessed characters array
 #   steps:
@@ -123,7 +141,6 @@ p game.character_reveal("l")
 
 # Driver code will handle user input and output
 
-# PSEUDOCODE
 # Create a class a word-guessing game
 # One user can enter a word
 # another user attempts to guess the word
@@ -131,4 +148,3 @@ p game.character_reveal("l")
 # Repeated guesses do not count against the user
 # Player receives continual feedback on the current state of the word (Guess# left, words used, words matched)
 # The user should get a congratulatory message if they win, and a taunting message if they lose
-#end
