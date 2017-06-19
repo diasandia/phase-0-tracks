@@ -36,11 +36,11 @@ class Game
     @masked_character_list.join
   end
 
-  # def guess_count
-  #   @guess_count = @word.length
-  # end
+  def guess_count
+    @guess_count = @word.length
+  end
 
- def game_state
+  def game_state
   if @masked_character_list == @word
     @game_over = true
     p "You win! The word is #{@word}!"
@@ -55,23 +55,21 @@ end
 
 
 #------------------------------------------
-# Driver code
+#Driver code
 
-# puts "Welcome to Guess the word! Player 1 - Please enter a word "
-# player_word=gets.chomp
-# game = Game.new(player_word)
+puts "Welcome to Guess the word! Player 1 - Please enter a word "
+player_word=gets.chomp
+game = Game.new(player_word)
 
-# while game.guess_count < player_word.length
-# puts "Player 2 - Please enter a letter."
-# guessed_character = gets.chomp.downcase
-#   if game.game_state true
-#     break
-#   end
-# end
+while game.guess_count < player_word.length
+puts "Player 2 - Please enter a letter."
+guessed_character = gets.chomp.downcase
+  if game.game_state true
+    break
+  end
+end
 
-# end
-
-# game.game_state
+end
 
 
 #-------------------------------
