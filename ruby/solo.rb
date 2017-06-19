@@ -19,7 +19,7 @@
   # output: array
 
   # Another user attempts to guess the word - Method for finding and replacing characters
-  # input: string (guess character), index
+  # input: string (guess character)
   # steps:
     #IF guess character is included in word
       #reveal the character
@@ -28,16 +28,31 @@
     #create an array to store the guess characters
   # output: array
 
+  # Guesses are limited, related to the length of the word - Method for guess counter
+  # input: word
+  # steps:
+    #count the word length
+    #based on word length create guess counter
+  # output: integer
+
+  # Guesses are limited, related to the length of the word - Method for guess counter
+  # input: word
+  # steps:
+    #count the word length
+    #based on word length create guess counter
+  # output: integer
+
 class WordGame
 
   attr_accessor :word, :character_list, :guess_count
 
   def initialize(word)
     @word = word
-    @guess_character = []
+    @guessed_character = []
     @character_list = []
     @masked_character_list = []
     @guess_count = 0
+    @game_over = false
   end
 
   def masked_word
@@ -47,22 +62,35 @@ class WordGame
     @masked_character_list.join
   end
 
-  def guessed_chracters(guess_character)
-    @guess_character_list << @guess_character
+  def guessed_chracters(guessed_character)
+    @guess_character_list << @guessed_character
+    unless @guessed_character_list.inlcude?(guessed_character)
   end
 
-
-  def character_reveal(guess_character)
-    if @character_list.include?(guess_character)
+  def character_reveal(guessed_character)
+    if @character_list.include?(guessed_character)
       @character_list.each_index do |i|
-        if @character_list[i] == guess_character
+        if @character_list[i] == guessed_character
          @masked_character_list.delete_at(i)
-         @masked_character_list.insert(i, guess_character)
+         @masked_character_list.insert(i, guessed_character)
         end
       end
     end
     @masked_character_list.join
   end
+
+  # def guess_count
+  #   @guess_count = @word.length
+  #   @guess_count -= 1
+  # end
+
+ # def game_state
+ #  when @masked_character_list == @word
+ #    @game_over = true
+ #    p "You win! The word is #{@word}!"
+ #  when @guess_counter == @guess_count
+ #    @game_over = true
+ #    p "Sorry, you lose! The word was #{@word}."
 
 
 end
@@ -70,28 +98,14 @@ end
 wordgame = WordGame.new("hello")
 # p wordgame.initilize("hello")
 p wordgame.masked_word
-# p wordgame.remove_character(2)
 p wordgame.character_reveal("l")
-# p wordgame.character_revel("o")
+
+
+p wordgame.character_reveal("o")
 
 
 
-# Another user attempts to guess the word - Method for finding and replacing characters
-  # input: string (guess character), index
-  # steps:
-    #IF guess character is included in word
-      #reveal the character
-    #ELSE
-      #Try again
-    #create an array to store the guess characters
-  # output: array
 
-# Guesses are limited, related to the length of the word - Method for guess counter
-  # input: word
-  # steps:
-    #count the word length
-    #based on word length create guess counter
-  # output: integer
 
 # Repeated guesses do not count against the user - Method for checking duplicate characters & feedback on each guess
   # input: user character, guessed characters array
