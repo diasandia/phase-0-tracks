@@ -1,70 +1,83 @@
 # 6.7: A Game Class
 
-#Create a class a word-guessing game
-  # input: ClassName
-  # steps:
-  #   define the class
-  #   add an empty initialize method
-  # output: Class
+#create a class a word-guessing game
 
-# One user can enter a word - Method to create a list of characters
-  # input: word
+#create a method that takes a word and creates an array
+  # input: word (string)
   # steps:
     #break the word into characters
     #create an array for characters
     #disguise characters
   # output: array
 
-#  Method to mask the word
-  # input: character list
+# create a method that takes the created array and masks the word
+  # input: array
   # steps:
+    # use character list from previous method
+    # change character list to attribute
     # disguise each character
-  # output: masked array
+  # output: array
 
-#####character_count = character_list.count
+  # Another user attempts to guess the word - Method for finding and replacing characters
+  # input: string (guess character), index
+  # steps:
+    #IF guess character is included in word
+      #reveal the character
+    #ELSE
+      #Try again
+    #create an array to store the guess characters
+  # output: array
 
 class WordGame
-attr_reader :word
-attr_accessor :character_list,
 
-  def initilize(word)
+  attr_accessor :word, :character_list, :guess_count
+
+  def initialize(word)
     @word = word
-    @character_list = character_list
-    # @guess_count = 0
-    # @guess_character = guess_character
-    # @masked_word = masked_word
+    @guess_character = []
+    @character_list = []
+    @masked_character_list = []
+    @guess_count = 0
   end
 
-  def masked_word(word)
-    @character_list = word.split(//)
-    masked_character_list = character_list.map do |character| character.gsub(/./, "-")
+  def masked_word
+    @character_list = @word.split(//)
+    @masked_character_list = @character_list.map do |char| char = "-"
+  end
+    @masked_character_list.join
+  end
+
+  def guessed_chracters(guess_character)
+    @guess_character_list << @guess_character
+  end
+
+
+  def character_reveal(guess_character)
+    if @character_list.include?(guess_character)
+      @character_list.each_index do |i|
+        if @character_list[i] == guess_character
+         @masked_character_list.delete_at(i)
+         @masked_character_list.insert(i, guess_character)
+        end
+      end
     end
-    return masked_character_list.join("")
+    @masked_character_list.join
   end
 
-  def character_revel(guess_character)
-    guess_character_list =[]
-    guess_character_list << guess_character
-    @character_list.include? guess_character
-  end
 
-  #user provides a character
-  #create an empty array to store the guessed character
-  #character must go through each character of character list
-  #IF the character is there reveal it
+end
 
-  end
-
-wordgame = WordGame.new
+wordgame = WordGame.new("hello")
 # p wordgame.initilize("hello")
-p wordgame.masked_word("pizza")
-p wordgame.character_revel("a")
-
+p wordgame.masked_word
+# p wordgame.remove_character(2)
+p wordgame.character_reveal("l")
+# p wordgame.character_revel("o")
 
 
 
 # Another user attempts to guess the word - Method for finding and replacing characters
-  # input: guess character
+  # input: string (guess character), index
   # steps:
     #IF guess character is included in word
       #reveal the character
@@ -112,3 +125,7 @@ p wordgame.character_revel("a")
 # Repeated guesses do not count against the user
 # Player receives continual feedback on the current state of the word (Guess# left, words used, words matched)
 # The user should get a congratulatory message if they win, and a taunting message if they lose.
+
+
+
+#US
