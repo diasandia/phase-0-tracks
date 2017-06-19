@@ -38,35 +38,40 @@ class Game
 
   # def guess_count
   #   @guess_count = @word.length
-  #   @guess_count -= 1
   # end
 
- # def game_state
- #  when @masked_character_list == @word
- #    @game_over = true
- #    p "You win! The word is #{@word}!"
- #  when @guess_counter == @guess_count
- #    @game_over = true
- #    p "Sorry, you lose! The word was #{@word}."
-
+ def game_state
+  if @masked_character_list == @word
+    @game_over = true
+    p "You win! The word is #{@word}!"
+  if @guess_counter == @guess_count
+    @game_over = true
+    p "Sorry, you lose! The word was #{@word}."
+  end
+  end
 end
 
+end
 
 
 #------------------------------------------
 # Driver code
 
-puts "Welcome to Guess the word! Player 1 - Please enter a word "
-player_1=gets.chomp
+# puts "Welcome to Guess the word! Player 1 - Please enter a word "
+# player_word=gets.chomp
+# game = Game.new(player_word)
 
-puts "Player 2 - The game has officially began! Please enter a letter"
-player_2 = gets.chomp.downcase
-game = Game.new(player_1)
+# while game.guess_count < player_word.length
+# puts "Player 2 - Please enter a letter."
+# guessed_character = gets.chomp.downcase
+#   if game.game_state true
+#     break
+#   end
+# end
 
-until game.game_over == true
-puts "Please guess again:"
-guessed_character = gets.chomp
-end
+# end
+
+# game.game_state
 
 
 #-------------------------------
@@ -138,7 +143,6 @@ end
 
 # Driver code will handle user input and output
 
-# PSEUDOCODE
 # Create a class a word-guessing game
 # One user can enter a word
 # another user attempts to guess the word
@@ -146,4 +150,3 @@ end
 # Repeated guesses do not count against the user
 # Player receives continual feedback on the current state of the word (Guess# left, words used, words matched)
 # The user should get a congratulatory message if they win, and a taunting message if they lose
-ß
