@@ -20,8 +20,16 @@ class Game
     @masked_character_list.join
   end
 
+  def guess_count
+    @guess_count = @word.length
+  end
+
   def guessed_chracters(guessed_character)
-    @guess_character_list << @guessed_character
+    if @guess_character_list.include?(guessed_character)
+      puts "Sorry you already used this letter"
+    else
+    @guessed_character << guessed_character
+  end
   end
 
   def character_reveal(guessed_character)
@@ -36,9 +44,6 @@ class Game
     @masked_character_list.join
   end
 
-  def guess_count
-    @guess_count = @word.length
-  end
 
   def game_state
   if @masked_character_list == @word
@@ -53,15 +58,18 @@ end
 
 end
 
-
 #------------------------------------------
 #Driver code
 
 puts "Welcome to Guess the word! Player 1 - Please enter a word "
 player_word=gets.chomp
+
+puts "Player 2 - Please enter a letter."
+guessed_character = gets.chomp.downcase
+
 game = Game.new(player_word)
 
-while game.guess_count < player_word.length
+while game.guess_count <= player_word.length
 puts "Player 2 - Please enter a letter."
 guessed_character = gets.chomp.downcase
   if game.game_state true
@@ -69,7 +77,10 @@ guessed_character = gets.chomp.downcase
   end
 end
 
-end
+game.game_state
+
+
+
 
 
 #-------------------------------
