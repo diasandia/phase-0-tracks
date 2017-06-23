@@ -41,10 +41,7 @@ class Newsroom
   def total_salaries
     reporter_name_array = @reporters.keys
     salary_array = reporter_name_array.map {|reporter_name| salary_for(reporter_name)}
-    salary_array.reduce(:+) #must be numbers, so in this case it works b/c we have an array of numbers
-    # sum = 0
-    # salary_array.each {|reporter_slary| sum +=reporter_slary}
-    # sum
+    salary_array.reduce(:+)
   end
 
 def friendly_print
@@ -193,3 +190,14 @@ newsroom.find_reporters_with_skill("Politics")
 # Your reporters want to branch out and develop new skills and specialties.
 # Create an instance method that takes a reporter's name and the new skill they've learned,
 #and add it to that reporter's skill in your reporters data structure.
+
+#---------
+#DSA Notes
+ # def total_salaries
+ #    reporter_name_array = @reporters.keys
+ #    salary_array = reporter_name_array.map {|reporter_name| salary_for(reporter_name)}
+ #    salary_array.reduce(:+) #must be numbers, so in this case it works b/c we have an array of numbers
+ #    # sum = 0
+ #    # salary_array.each {|reporter_salary| sum +=reporter_salary}
+ #    # sum
+ #  end
