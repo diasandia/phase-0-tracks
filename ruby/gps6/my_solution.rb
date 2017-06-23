@@ -110,7 +110,7 @@ end
 #---- Require_relative complements the built-in method of require by allowing you to load a file that is relative to the file containing the require_relative statement.
 
 # What are some ways to iterate through a hash?
-#----Two ways you can iterate through a hash is by using .each or .map
+#----Two ways you can iterate through a hash is by using .map or converting the key's or values into an array and iterate as an array.
 
 # What concept did you most solidify in this challenge?
 #---I have a much better understanding of how to use nested data structures.
