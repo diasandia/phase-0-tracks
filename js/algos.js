@@ -57,9 +57,7 @@
   console.log(longestWord(wordBuilder(3)));
   }
 
-
 //---PSEUDOCODE---//
-
 /*
 RELEASE 0
   create a function that takes an array of words and returns the longest word
@@ -91,6 +89,6 @@ RELEASE 2
         1. create an alphabet variable, empty word array, & empty string
         2. create for loop
         3. generate a random word (randomly varying length, with a minimum of 1 letter and a maximum of 10 letters)
-        3. push words to empty array
+        4. push words to empty array
     output: array
 */
