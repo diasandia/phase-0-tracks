@@ -67,3 +67,14 @@ object1 = {dog: "Ruby", fur: "red", age: 2}
 object2 = {cat: "Lucy", fur: "white", age: 1}
 
 console.log(compareObjects(object1, object2))
+
+/* RELEASE 2
+pseudocode::
+  create a function that takes an integer and builds that number of words into an array
+    input: integer
+      steps:
+    output: array
+*/
+
+function wordBuilder(num)
+var
