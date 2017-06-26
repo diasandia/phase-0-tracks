@@ -1,64 +1,61 @@
 // 7.3 Solo Challenge: Algorithm Practice
 
-function longestWord(words) {
-  var longestStr = "";
-    for (var i = 0; i < words.length; i ++) {
-      if (words[i].length > longestStr.length) {
-      longestStr = words[i];
+  function longestWord(words) {
+    var longestStr = "";
+      for (var i = 0; i < words.length; i ++) {
+        if (words[i].length > longestStr.length) {
+        longestStr = words[i];
+        }
       }
-    }
-    return longestStr
-}
+      return longestStr
+  }
 
-
-function compareObjects(object1, object2) {
-    for (var key1 in object1) {
-      for (var key2 in object2) {
-        if (key1 === key2) {
-          if (object1[key1] === object2[key2]) {
-          return true;
+  function compareObjects(object1, object2) {
+      for (var key1 in object1) {
+        for (var key2 in object2) {
+          if (key1 === key2) {
+            if (object1[key1] === object2[key2]) {
+            return true;
+            }
           }
         }
       }
-    }
-    return false;
-};
+      return false;
+  };
 
-
-function wordBuilder(num) {
-  var alphabet = "abcdefghijklmnopqrstuvwxyz";
-  var wordsList = [];
-  var randomWord = "";
-    for (var i = 0; i < Math.random() * (10 - 1); i++) {
-      randomWord += alphabet[Math.floor(Math.random() * (alphabet.length))];
-    };
-    for (var i = 0; i < num; i++){
-       wordsList.push(randomWord);
-    };
-    return wordsList;
-};
+  function wordBuilder(num) {
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var wordsList = [];
+    var randomWord = "";
+      for (var i = 0; i < Math.random() * (10 - 1); i++) {
+        randomWord += alphabet[Math.floor(Math.random() * (alphabet.length))];
+      };
+      for (var i = 0; i < num; i++){
+         wordsList.push(randomWord);
+      };
+      return wordsList;
+  };
 
 //---Driver Code---//
 
 //Release 0::
-// words = ["long phrase","longest phrase","longer phrase"]
-words = ["lions", "tigers", "wolfs", "elephant", "fox", "hippopotamus"]
-console.log(longestWord(words))
-
+  // words = ["long phrase","longest phrase","longer phrase"]
+  words = ["lions", "tigers", "wolfs", "elephant", "fox", "hippopotamus"]
+  console.log(longestWord(words))
 
 //Release 1::
-// object1 = {name: "Steven", age: 53}
-// object2 = {age: 53, name: "Tamir"}
-object1 = {dog: "Ruby", fur: "red", age: 2}
-object2 = {cat: "Lucy", fur: "white", age: 1}
-console.log(compareObjects(object1, object2))
+  // object1 = {name: "Steven", age: 53}
+  // object2 = {age: 53, name: "Tamir"}
+  object1 = {dog: "Ruby", fur: "red", age: 2}
+  object2 = {cat: "Lucy", fur: "white", age: 1}
+  console.log(compareObjects(object1, object2))
 
 //Release 2::
-console.log(wordBuilder(3));
+  console.log(wordBuilder(3));
 
-for (var counter = 0; counter < 10; counter++) {
-console.log(longestWord(wordBuilder(3)));
-}
+  for (var counter = 0; counter < 10; counter++) {
+  console.log(longestWord(wordBuilder(3)));
+  }
 
 
 //---PSEUDOCODE---//
