@@ -1,0 +1,47 @@
+8.3 Solo Challenge: Build a Database
+
+1. Display the information in one table (either table is fine).
+
+  SELECT * FROM runners;
+      1|Daniella|Fernandez|true|00:12:48|3
+      2|Jenny|Day|true|00:12:49|2
+      3|Karen|Rodriguez|false|00:12:50|3
+      4|Alice|Garcia|true|00:12:54|1
+      5|Victoria|O'Sullivan|true|00:12:55|1
+      6|Elizabeth|Walsh|true|00:13:01|1
+      7|Maria|Eriksson|false|00:13:03|2
+      8|Felicia|Murphy|true|00:13:04|1
+      9|Carmen|Kelly|false|00:13:16|3
+      10|Lauren|Tory|false|00:13:17|2
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+  UPDATE runners SET race_time="00:12:33" WHERE first_name="Daniella";
+      1|Daniella|Fernandez|true|00:12:33|3
+
+3. Display the information in both tables using one query.
+  SELECT * FROM runners, race WHERE runners.race_id = race.id;
+      1|Daniella|Fernandez|true|00:12:48|3|3|San Francisco 5k|2016-11-19|true
+
+      2|Jenny|Day|true|00:12:49|2|2|Berkeley 5k|2016-11-12|true
+
+      3|Karen|Rodriguez|false|00:12:50|3|3|San Francisco 5k|2016-11-19|true
+
+      4|Alice|Garcia|true|00:12:54|1|1|Sacramento 5k|2016-11-05|false
+
+      5|Victoria|O'Sullivan|true|00:12:55|1|1|Sacramento 5k|2016-11-05|false
+
+      6|Elizabeth|Walsh|true|00:13:01|1|1|Sacramento 5k|2016-11-05|false
+
+      7|Maria|Eriksson|false|00:13:03|2|2|Berkeley 5k|2016-11-12|true
+
+      8|Felicia|Murphy|true|00:13:04|1|1|Sacramento 5k|2016-11-05|false
+
+      9|Carmen|Kelly|false|00:13:16|3|3|San Francisco 5k|2016-11-19|true
+
+      10|Lauren|Tory|false|00:13:17|2|2|Berkeley 5k|2016-11-12|true
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
