@@ -1,47 +1,121 @@
 8.3 Solo Challenge: Build a Database
 
 1. Display the information in one table (either table is fine).
-
   SELECT * FROM runners;
-      1|Daniella|Fernandez|true|00:12:48|3
-      2|Jenny|Day|true|00:12:49|2
-      3|Karen|Rodriguez|false|00:12:50|3
-      4|Alice|Garcia|true|00:12:54|1
-      5|Victoria|O'Sullivan|true|00:12:55|1
-      6|Elizabeth|Walsh|true|00:13:01|1
-      7|Maria|Eriksson|false|00:13:03|2
-      8|Felicia|Murphy|true|00:13:04|1
-      9|Carmen|Kelly|false|00:13:16|3
-      10|Lauren|Tory|false|00:13:17|2
-
+    id          first_name  last_name   personal_record  race_time   race_id
+    ----------  ----------  ----------  ---------------  ----------  ----------
+    1           Daniella    Fernandez   true             00:12:48    3
+    2           Jenny       Day         true             00:12:49    2
+    3           Karen       Rodriguez   false            00:12:50    3
+    4           Alice       Garcia      true             00:12:54    1
+    5           Victoria    O'Sullivan  true             00:12:55    1
+    6           Elizabeth   Walsh       true             00:13:01    1
+    7           Maria       Eriksson    false            00:13:03    2
+    8           Felicia     Murphy      true             00:13:04    1
+    9           Carmen      Kelly       false            00:13:16    3
+    10          Lauren      Tory        false            00:13:17    2
 
 2. Update an item that meets some condition (you can choose a condition that makes sense).
-
   UPDATE runners SET race_time="00:12:33" WHERE first_name="Daniella";
-      1|Daniella|Fernandez|true|00:12:33|3
+    id          first_name  last_name   personal_record  race_time   race_id
+    ----------  ----------  ----------  ---------------  ----------  ----------
+    1           Daniella    Fernandez   true             00:12:33    3
 
 3. Display the information in both tables using one query.
   SELECT * FROM runners, race WHERE runners.race_id = race.id;
-      1|Daniella|Fernandez|true|00:12:48|3|3|San Francisco 5k|2016-11-19|true
-
-      2|Jenny|Day|true|00:12:49|2|2|Berkeley 5k|2016-11-12|true
-
-      3|Karen|Rodriguez|false|00:12:50|3|3|San Francisco 5k|2016-11-19|true
-
-      4|Alice|Garcia|true|00:12:54|1|1|Sacramento 5k|2016-11-05|false
-
-      5|Victoria|O'Sullivan|true|00:12:55|1|1|Sacramento 5k|2016-11-05|false
-
-      6|Elizabeth|Walsh|true|00:13:01|1|1|Sacramento 5k|2016-11-05|false
-
-      7|Maria|Eriksson|false|00:13:03|2|2|Berkeley 5k|2016-11-12|true
-
-      8|Felicia|Murphy|true|00:13:04|1|1|Sacramento 5k|2016-11-05|false
-
-      9|Carmen|Kelly|false|00:13:16|3|3|San Francisco 5k|2016-11-19|true
-
-      10|Lauren|Tory|false|00:13:17|2|2|Berkeley 5k|2016-11-12|true
+id          first_name  last_name   personal_record  race_time   race_id     id          race_name         date        hills
+----------  ----------  ----------  ---------------  ----------  ----------  ----------  ----------------  ----------  ----------
+1           Daniella    Fernandez   true             00:12:33    3           3           San Francisco 5k  2016-11-19  true
+2           Jenny       Day         true             00:12:49    2           2           Berkeley 5k       2016-11-12  true
+3           Karen       Rodriguez   false            00:12:50    3           3           San Francisco 5k  2016-11-19  true
+4           Alice       Garcia      true             00:12:54    1           1           Sacramento 5k     2016-11-05  false
+5           Victoria    O'Sullivan  true             00:12:55    1           1           Sacramento 5k     2016-11-05  false
+6           Elizabeth   Walsh       true             00:13:01    1           1           Sacramento 5k     2016-11-05  false
+7           Maria       Eriksson    false            00:13:03    2           2           Berkeley 5k       2016-11-12  true
+8           Felicia     Murphy      true             00:13:04    1           1           Sacramento 5k     2016-11-05  false
+9           Carmen      Kelly       false            00:13:16    3           3           San Francisco 5k  2016-11-19  true
+10          Lauren      Tory        false            00:13:17    2           2           Berkeley 5k       2016-11-12  true
 
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+  SELECT runners.first_name, runners.last_name, runners.race_time, race.race_name from runners, race WHERE runners.race_id = race.id;
+    first_name  last_name   race_time   race_name
+    ----------  ----------  ----------  ----------------
+    Daniella    Fernandez   00:12:33    San Francisco 5k
+    Jenny       Day         00:12:49    Berkeley 5k
+    Karen       Rodriguez   00:12:50    San Francisco 5k
+    Alice       Garcia      00:12:54    Sacramento 5k
+    Victoria    O'Sullivan  00:12:55    Sacramento 5k
+    Elizabeth   Walsh       00:13:01    Sacramento 5k
+    Maria       Eriksson    00:13:03    Berkeley 5k
+    Felicia     Murphy      00:13:04    Sacramento 5k
+    Carmen      Kelly       00:13:16    San Francisco 5k
+    Lauren      Tory        00:13:17    Berkeley 5k
 
 5. Delete an item that meets some condition (you can choose a condition that makes sense).
+  DELETE FROM runners WHERE race_time > "00:13:15";
+    first_name  last_name   race_time   race_name
+    ----------  ----------  ----------  ----------------
+    Daniella    Fernandez   00:12:33    San Francisco 5k
+    Jenny       Day         00:12:49    Berkeley 5k
+    Karen       Rodriguez   00:12:50    San Francisco 5k
+    Alice       Garcia      00:12:54    Sacramento 5k
+    Victoria    O'Sullivan  00:12:55    Sacramento 5k
+    Elizabeth   Walsh       00:13:01    Sacramento 5k
+    Maria       Eriksson    00:13:03    Berkeley 5k
+    Felicia     Murphy      00:13:04    Sacramento 5k
+
+Cross Join::
+  SELECT id, first_name, last_name, race_name FROM runners CROSS JOIN RACE;
+
+    first_name  last_name   race_name
+    ----------  ----------  -------------
+    Daniella    Fernandez   Sacramento 5k
+    Daniella    Fernandez   Berkeley 5k
+    Daniella    Fernandez   San Francisco
+    Jenny       Day         Sacramento 5k
+    Jenny       Day         Berkeley 5k
+    Jenny       Day         San Francisco
+    Karen       Rodriguez   Sacramento 5k
+    Karen       Rodriguez   Berkeley 5k
+    Karen       Rodriguez   San Francisco
+    Alice       Garcia      Sacramento 5k
+    Alice       Garcia      Berkeley 5k
+    Alice       Garcia      San Francisco
+    Victoria    O'Sullivan  Sacramento 5k
+    Victoria    O'Sullivan  Berkeley 5k
+    Victoria    O'Sullivan  San Francisco
+    Elizabeth   Walsh       Sacramento 5k
+    Elizabeth   Walsh       Berkeley 5k
+    Elizabeth   Walsh       San Francisco
+    Maria       Eriksson    Sacramento 5k
+    Maria       Eriksson    Berkeley 5k
+    Maria       Eriksson    San Francisco
+    Felicia     Murphy      Sacramento 5k
+    Felicia     Murphy      Berkeley 5k
+    Felicia     Murphy      San Francisco
+
+Inner Join::
+  SELECT first_name,last_name,race_name from runners JOIN race ON runners.race_id=race.id;
+    first_name  last_name   race_name
+    ----------  ----------  ----------------
+    Daniella    Fernandez   San Francisco 5k
+    Jenny       Day         Berkeley 5k
+    Karen       Rodriguez   San Francisco 5k
+    Alice       Garcia      Sacramento 5k
+    Victoria    O'Sullivan  Sacramento 5k
+    Elizabeth   Walsh       Sacramento 5k
+    Maria       Eriksson    Berkeley 5k
+    Felicia     Murphy      Sacramento 5k
+
+Outer Join::
+  SELECT race_name, first_name, last_name from race LEFT OUTER JOIN runners ON race.id=runners.race_id;
+    race_name      first_name  last_name
+    -------------  ----------  ----------
+    Sacramento 5k  Alice       Garcia
+    Sacramento 5k  Elizabeth   Walsh
+    Sacramento 5k  Felicia     Murphy
+    Sacramento 5k  Victoria    O'Sullivan
+    Berkeley 5k    Jenny       Day
+    Berkeley 5k    Maria       Eriksson
+    San Francisco  Daniella    Fernandez
+    San Francisco  Karen       Rodriguez
